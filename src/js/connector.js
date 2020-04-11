@@ -2,7 +2,10 @@ const WHITE_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827
 const BLACK_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-black.svg';
 
 const onBtnClick = function (t, opts) {
-  console.log('Someone clicked the button');
+  return t.board('all')
+    .then(function (board) {
+      console.log(JSON.stringify(board, null, 2));
+    });
 };
 
 window.TrelloPowerUp.initialize({
@@ -14,7 +17,7 @@ window.TrelloPowerUp.initialize({
       },
       text: 'Callback',
       callback: onBtnClick,
-      condition: 'edit'
+      condition: 'admin'
     }
   }
 });
