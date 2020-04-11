@@ -1,7 +1,5 @@
-const WHITE_ICON = document.createElement('img');
-const BLACK_ICON = document.createElement('img');
-WHITE_ICON.src = './src/img/icon-light.png';
-BLACK_ICON.src = './src/img/icon-dark.png';
+const WHITE_ICON = document.getElementById('light-icon');
+const BLACK_ICON = document.getElementById('dark-icon');
 
 const onBtnClick = function (t, opts) {
   console.log('Someone clicked the button');
