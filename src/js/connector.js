@@ -2,9 +2,9 @@ const WHITE_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827
 const BLACK_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-black.svg';
 
 const onBtnClick = function (t, opts) {
-  return t.board('all')
-    .then(function (board) {
-      console.log(JSON.stringify(board, null, 2));
+  return t.cards('all')
+    .then(function (cards) {
+      console.log(JSON.stringify(cards, null, 2));
     });
 };
 
