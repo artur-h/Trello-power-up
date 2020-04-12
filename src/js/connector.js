@@ -85,7 +85,7 @@ function onBtnClick(t, opts) {
       renderUserList(info.allProjectsDoneByUser, info.userList)
       }).then(function () {
       return t.modal({
-        url: 'https://wedcat-trello-power-up.netlify.com/',
+        url: 'https://www.google.com/',
         fullscreen: true
       })
     });
