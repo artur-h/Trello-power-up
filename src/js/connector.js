@@ -78,20 +78,16 @@ function formatProjectList(project) {
 }
 
 function onBtnClick(t, opts) {
-  return t.cards('all')
-    .then(function (cards) {
+  return t.modal({
+    url: 'https://wedcat-trello-power-up.netlify.com/',
+    fullscreen: true,
+  }).then(function() {
+      return t.cards('all');
+    }).then(function (cards) {
       return generateList(cards);
-    }).then(function (info) {
-      return renderUserList(info.allProjectsDoneByUser, info.userList)
-      }).then(function () {
-      return t.modal({
-        url: 'https://wedcat-trello-power-up.netlify.com/',
-        fullscreen: true,
-        args: {
-          text: 'hello'
-        }
+      }).then(function (info) {
+        return renderUserList(info.allProjectsDoneByUser, info.userList)
       })
-    });
 }
 
 window.TrelloPowerUp.initialize({
@@ -107,3 +103,17 @@ window.TrelloPowerUp.initialize({
     }
   }
 });
+
+// function onBtnClick(t, opts) {
+//   return t.cards('all')
+//     .then(function (cards) {
+//       return generateList(cards);
+//     }).then(function (info) {
+//       return renderUserList(info.allProjectsDoneByUser, info.userList)
+//     }).then(function () {
+//       return t.modal({
+//         url: 'https://wedcat-trello-power-up.netlify.com/',
+//         fullscreen: true,
+//       })
+//     });
+// }
