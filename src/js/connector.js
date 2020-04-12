@@ -80,7 +80,7 @@ function formatProjectList(project) {
 
 function onBtnClick(t, opts) {
   return t.modal({
-    url: '../html/modal.html',
+    url: 'https://wedcat-trello-power-up.netlify.com/modal.html',
     fullscreen: true
   })
 }
