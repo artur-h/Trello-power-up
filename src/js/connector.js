@@ -91,7 +91,7 @@ function onBtnClick(t, opts) {
           text: 'hello'
         }
       }).then(function () {
-        console.log(t.args('text'))
+        return t.args('text')
       })
     });
 }
