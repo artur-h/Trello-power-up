@@ -2,6 +2,7 @@ const WHITE_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827
 const BLACK_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-black.svg';
 
 function createUserList(data) {
+  console.log(data)
   const tmpArray = [];
   const updatedUserList = [];
   data.forEach( card => {
@@ -12,6 +13,7 @@ function createUserList(data) {
 }
 
 function addUser(member, tmpArray) {
+  console.log(member, tmpArray);
   if (tmpArray.indexOf(member.id) === -1) {
     tmpArray.push(member.id);
     return true
@@ -20,9 +22,10 @@ function addUser(member, tmpArray) {
 }
 
 function generateList(info) {
+  console.log(info)
   const userList = createUserList(info);
   const allProjectsDoneByUser = {};
-
+  console.log(userList)
   userList.forEach(user => {
     allProjectsDoneByUser[user.id] = [];
 
@@ -41,6 +44,7 @@ function generateList(info) {
 }
 
 function renderUserList(projects, users) {
+  console.log(projects, users)
   for (let key in projects) {
     document.getElementById('list').innerHTML += formatUserList(key, users, projects)
   }
@@ -50,6 +54,7 @@ function formatUserList(userId, users, projects) {
   const user = users.find(currentUser => {
     if (currentUser.id === userId) return true;
   })
+  console.log(userId, users, projects)
 
   return `<div class="employee">
     <h3 class="employee__name">${user.fullName}</h3>
@@ -61,6 +66,7 @@ function formatUserList(userId, users, projects) {
 }
 
 function renderProjectList(id, projects) {
+  console.log(id, projects);
   return `
     <ol class="project">
       ${projects[id].map(card => formatProjectList(card)).join('')}
@@ -69,6 +75,7 @@ function renderProjectList(id, projects) {
 }
 
 function formatProjectList(project) {
+  console.log(project);
   return `
     <li>
       <span class="project__status">List name</span>
@@ -80,8 +87,10 @@ function formatProjectList(project) {
 function onBtnClick(t, opts) {
   return t.cards('all')
     .then(function (cards) {
+      console.log(cards)
       return generateList(cards);
     }).then(function (info) {
+      console.log(info)
       renderUserList(info.allProjectsDoneByUser, info.userList);
       }).then(function () {
       return t.modal({
