@@ -20,14 +20,13 @@ function addUser(member, tmpArray) {
 }
 
 function generateList(info) {
-  const data = JSON.parse(info);
-  const userList = createUserList(data);
+  const userList = createUserList(info);
   const allProjectsDoneByUser = {};
 
   userList.forEach(user => {
     allProjectsDoneByUser[user.id] = [];
 
-    data.forEach(card => card.members.forEach( member => {
+    info.forEach(card => card.members.forEach( member => {
       if (member.id === user.id) {
         allProjectsDoneByUser[user.id].push(card);
       }
@@ -35,7 +34,7 @@ function generateList(info) {
   })
 
   return {
-    data: data,
+    data: info,
     userList: userList,
     allProjectsDoneByUser: allProjectsDoneByUser
   }
