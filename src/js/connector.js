@@ -41,8 +41,9 @@ function generateList(info) {
 
 function renderUserList(projects, users) {
   for (let key in projects) {
-    document.getElementById('list').innerHTML += formatUserList(key, users, projects)
-    console.log(formatUserList(key, users, projects));
+    const list = document.getElementById('list');
+    list.innerHTML += formatUserList(key, users, projects)
+    console.log(list);
   }
 }
 
@@ -85,7 +86,7 @@ function onBtnClick(t, opts) {
       renderUserList(info.allProjectsDoneByUser, info.userList)
       }).then(function () {
       return t.modal({
-        url: 'https://www.google.com/',
+        url: 'https://wedcat-trello-power-up.netlify.com/',
         fullscreen: true
       })
     });
