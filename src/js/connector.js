@@ -90,8 +90,6 @@ function onBtnClick(t, opts) {
         args: {
           text: 'hello'
         }
-      }).then(function () {
-        return t.args('text')
       })
     });
 }
