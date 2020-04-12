@@ -90,6 +90,8 @@ function onBtnClick(t, opts) {
         args: {
           text: 'hello'
         }
+      }).then(function (modal) {
+        console.log(modal)
       })
     });
 }
