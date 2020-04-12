@@ -81,12 +81,21 @@ function onBtnClick(t, opts) {
   return t.modal({
     url: 'https://wedcat-trello-power-up.netlify.com/',
     fullscreen: true,
+    args: {
+      text: 'hello'
+    }
   }).then(function() {
       return t.cards('all');
     }).then(function (cards) {
       return generateList(cards);
       }).then(function (info) {
-        return renderUserList(info.allProjectsDoneByUser, info.userList)
+        let t = window.TrelloPowerUp.iframe();
+        const arg = t.arg('text')
+        console.log(arg);
+
+        t.render(function (info) {
+          return renderUserList(info.allProjectsDoneByUser, info.userList)
+        })
       })
 }
 
