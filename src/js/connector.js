@@ -83,8 +83,8 @@ function onBtnClick(t, opts) {
       return generateList(cards);
     }).then(function (info) {
       renderUserList(info.allProjectsDoneByUser, info.userList);
-
-      t.modal({
+      }).then(function () {
+      return t.modal({
         url: 'https://wedcat-trello-power-up.netlify.com/',
         fullscreen: true
       })
