@@ -86,7 +86,12 @@ function onBtnClick(t, opts) {
       }).then(function () {
       return t.modal({
         url: 'https://wedcat-trello-power-up.netlify.com/',
-        fullscreen: true
+        fullscreen: true,
+        args: {
+          text: 'hello'
+        }
+      }).then(function () {
+        console.log(t.args('text'))
       })
     });
 }
