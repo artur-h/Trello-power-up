@@ -41,8 +41,9 @@ function generateList(info) {
 
 function renderUserList(projects, users) {
   for (let key in projects) {
-    const list = document.getElementById('list');
+    const list = document.createElement('div');
     list.innerHTML += formatUserList(key, users, projects)
+    document.body.append(list)
     console.log(list);
   }
 }
