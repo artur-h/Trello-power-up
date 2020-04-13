@@ -1,0 +1,92 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.list__item {
+  margin-bottom: 80px;
+  position: relative;
+  width: 400px;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 5;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.list__custom-block {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #444;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.list__user-info {
+  display: flex;
+  align-items: center;
+  margin: 40px auto 0;
+  width: 350px;
+  position: relative;
+  z-index: 3;
+}
+
+.list__img {
+  align-self: flex-start;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  min-width: 120px;
+  height: 120px;
+  margin-right: 15px;
+  background-color: #fff;
+}
+
+.list__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100%;
+  word-break: break-all;
+}
+
+.list__full-name {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  font-size: 20px;
+}
+
+.list__user-name {
+  margin: 25px 0 0;
+  color: #808080;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.project__card-link:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.project__card-name {
+  text-decoration: none;
+  color: #333;
+}
+
+.project__card-name:hover {
+  text-decoration: underline;
+}

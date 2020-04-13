@@ -1,3 +1,4 @@
+const STANDARD_AVATAR = '../img/user.png';
 let t = window.TrelloPowerUp.iframe();
 
 t.render(function () {
@@ -50,7 +51,6 @@ function generateList(info) {
 function renderUserList(projects, users) {
   for (let key in projects) {
     document.getElementById('list').innerHTML += formatUserList(key, users, projects)
-    console.log(document.getElementById('list'));
   }
 }
 
@@ -59,11 +59,17 @@ function formatUserList(userId, users, projects) {
     if (currentUser.id === userId) return true;
   })
 
-  return `<div class="employee">
-    <h3 class="employee__name">${user.fullName}</h3>
-    <div class="employee__username">${user.username}</div>
-    <img src="${user.avatar}" alt="Employee's avatar" class="employee__avatar">
-    ${renderProjectList(user.id, projects)}
+  return `
+    <div class="list__item">
+      <div class="list__custom-block"></div>
+      <div class="list__user-info">
+        <img src="${user.avatar || STANDARD_AVATAR}" alt="${user.username}'s avatar" class="list__img">
+        <div class="list__description">
+          <h3 class="list__full-name">${user.fullName}</h3>
+          <h4 class="list__user-name">@${user.username}</h4>
+        </div>
+      </div>
+      ${renderProjectList(user.id, projects)}
     </div>
   `
 }
@@ -78,9 +84,8 @@ function renderProjectList(id, projects) {
 
 function formatProjectList(project) {
   return `
-    <li>
-      <span class="project__status">List name</span>
-      <a href="${project.url}" class="project__card-link">${project.name}</a>
+    <li class="project__card-link">
+      <a href="${project.url}" class="project__card-name">${project.name}</a>
     </li>
   `
 }
